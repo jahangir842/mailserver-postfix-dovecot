@@ -67,10 +67,8 @@ If you want to include the transfer of the backup to a remote server via SSH in 
 2. **Add the combined cron job**: Add the following line to schedule the backup and transfer. This example also schedules the task to run daily at 2:00 AM.
 
    ```plaintext
-   0 2 * * * rsync -av --exclude='some-user/' /home/ /home/some-user/mail-server-backup/ && rsync -av --exclude='some-user/' /home/ user@remote-server:/path/to/backup/
+   0 2 * * * rsync -av --exclude='some-user/' /home/ user@remote-server:/path/to/backup/
    ```
-
-   - `&&`: This ensures that the second `rsync` command (the SSH transfer) runs only if the first command (local backup) is successful.
    - `user@remote-server:/path/to/backup/`: Replace `user` with your remote server's username, `remote-server` with the hostname or IP address, and `/path/to/backup/` with the destination path on the remote server.
 
 ### Example with Logging
@@ -86,7 +84,7 @@ To log the output of the cron job for debugging or record-keeping, you can redir
 2. **Add the cron job with logging**: Add the following line to schedule the backup, transfer, and log the output.
 
    ```plaintext
-   0 2 * * * rsync -av --exclude='some-user/' /home/ /home/some-user/mail-server-backup/ && rsync -av --exclude='some-user/' /home/ user@remote-server:/path/to/backup/ >> /var/log/mail-backup.log 2>&1
+   0 2 * * * rsync -av --exclude='some-user/' /home/ user@remote-server:/path/to/backup/ >> /var/log/mail-backup.log 2>&1
    ```
 
    - `>> /var/log/mail-backup.log`: This appends the standard output to `/var/log/mail-backup.log`.
