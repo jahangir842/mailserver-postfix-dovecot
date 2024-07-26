@@ -1,6 +1,6 @@
 # Guide to Installing an Open Source Mail Server with Postfix and Dovecot
 
-This guide will walk you through the installation and configuration of an open source mail server using Postfix and Dovecot on a Linux-based system. We'll cover the steps necessary to set up the server, configure users, secure the server with TLS, and integrate with Mattermost.
+This guide will walk you through the installation and configuration of an open source mail server using Postfix and Dovecot on a Linux-based system. We'll cover the steps necessary to set up the server, configure users and secure the server with TLS.
 
 ## Port Setting
 
