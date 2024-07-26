@@ -127,7 +127,7 @@ This comprehensive guide will walk you through the installation and configuratio
      sudo dnf install dovecot
      ```
 
-2. **Configure Dovecot**: Edit the main Dovecot configuration file to set up IMAP and authentication mechanisms.
+2. **Configure Dovecot Main Configuration File**: Edit the main Dovecot configuration file to set up IMAP and authentication mechanisms.
    ```bash
    sudo nano /etc/dovecot/dovecot.conf
    ```
@@ -138,9 +138,19 @@ This comprehensive guide will walk you through the installation and configuratio
    listen = *
    auth_mechanisms = plain login
    disable_plaintext_auth = no
-   mail_location = Maildir:~/Maildir
+   mail_location = maildir:~/Maildir
    ```
 
+
+2. **Configure Dovecot Other Configuration File**: Edit the other Dovecot configuration files.
+   ```bash
+   sudo nano /etc/dovecot/conf.d/10-mail.conf
+   ```
+
+   Example configuration option for mail location as already configured in main configuration file:
+   ```plaintext
+   mail_location = maildir:~/Maildir
+   ```
 3. **Test Dovecot configuration**: Verify that the Dovecot configuration is correct.
    ```bash
    sudo dovecot -n
